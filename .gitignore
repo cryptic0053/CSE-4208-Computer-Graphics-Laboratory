@@ -1,0 +1,68 @@
+# ==============================
+# Visual Studio (ignore everywhere)
+# ==============================
+.vs/
+**/.vs/
+ipch/
+**/ipch/
+*.ipch
+
+# Visual Studio user files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+*.vcxproj.user
+
+# ==============================
+# Build / CMake
+# ==============================
+build/
+out/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# ==============================
+# Compiled binaries / objects
+# ==============================
+*.exe
+*.dll
+*.lib
+*.exp
+*.ilk
+*.pdb
+*.obj
+*.o
+
+# ==============================
+# Logs
+# ==============================
+*.log
+
+# ==============================
+# OS junk
+# ==============================
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ==============================
+# Archives / installers
+# ==============================
+*.zip
+*.7z
+*.rar
+cmake-*/
+
+# ==============================
+# Optional: VS Code settings
+# Uncomment if you DON'T want to push VSCode configs
+# ==============================
+# .vscode/
+# **/.vscode/

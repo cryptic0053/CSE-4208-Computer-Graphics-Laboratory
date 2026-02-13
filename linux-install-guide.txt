@@ -1,0 +1,11 @@
+1. Install an IDE or a text editor. My favourite is Sublime text.
+2. Install GLFW and other necessary libraries.
+sudo apt-get install libglfw3 libglfw3-dev libxi-dev -y
+Other necessary libraries should be installed by default. If not then do some extra work :). 
+3. Download glad.zip following the doc (previously given). Unzip glad.zip and copy the include folder in /usr/local/
+cd glad
+sudo cp -a include /usr/local/
+4. Keep all the (.h, .vs, .fs, and so on) files in a folder. compile using g++. Also keep the glad.c file (from the downloaded glad.zip) in the same folder. Otherwise you have to provide the path of the glad.c file in the following line. 
+g++ -o program *.cpp glad.c -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl
+5. Run and enjoy.
+./program

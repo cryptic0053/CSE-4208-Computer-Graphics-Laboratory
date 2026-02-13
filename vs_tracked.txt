@@ -1,0 +1,4 @@
+test/.vs/test/FileContentIndex/3f8b66e5-9a86-420c-86dd-4d8ed0c107be.vsidx
+test/.vs/test/v17/.suo
+test/.vs/test/v17/Browse.VC.db
+test/.vs/test/v17/DocumentLayout.json
