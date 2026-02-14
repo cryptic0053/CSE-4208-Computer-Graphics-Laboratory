@@ -102,13 +102,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glad\include;E:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glfw-3.4\include;E:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glm;E:\4-2\Lab\CSE 4208 Computer Graphics Laboratory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glad\include;D:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glfw-3.4\include;D:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glm;D:\4-2\Lab\CSE 4208 Computer Graphics Laboratory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)glfw-3.4\lib-vc2022;%(AdditionalLibraryDirectories);E:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glfw-3.4\lib-vc2022</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;User32.lib;Gdi32.lib;Shell32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glfw_build\src\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -119,13 +120,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glad\include;E:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glfw-3.4\include;E:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glm;E:\4-2\Lab\CSE 4208 Computer Graphics Laboratory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glad\include;D:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glfw-3.4\include;D:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glm;D:\4-2\Lab\CSE 4208 Computer Graphics Laboratory;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>;E:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glfw-3.4\lib-vc2022</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;User32.lib;Gdi32.lib;Shell32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\4-2\Lab\CSE 4208 Computer Graphics Laboratory\glfw_build\src\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

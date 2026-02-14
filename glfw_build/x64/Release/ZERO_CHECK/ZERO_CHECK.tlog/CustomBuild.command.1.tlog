@@ -1,0 +1,10 @@
+^D:\4-2\LAB\CSE 4208 COMPUTER GRAPHICS LABORATORY\GLFW_BUILD\CMAKEFILES\7D95BAA19ED96938202217B77153BE26\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/4-2/Lab/CSE 4208 Computer Graphics Laboratory/glfw-3.4" "-BD:/4-2/Lab/CSE 4208 Computer Graphics Laboratory/glfw_build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/4-2/Lab/CSE 4208 Computer Graphics Laboratory/glfw_build/GLFW.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
