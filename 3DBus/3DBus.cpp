@@ -9,15 +9,12 @@
 #include <iostream>
 #include <cmath>
 
-// =========================
 // SCREEN
-// =========================
 int SCR_WIDTH = 800;
 int SCR_HEIGHT = 600;
 
-// =========================
+
 // SHADERS (Phong + multiple lights + emissive)
-// =========================
 const char* vertexShaderSource = R"(
 #version 330 core
 layout (location = 0) in vec3 aPos;
@@ -167,21 +164,15 @@ void main()
 }
 )";
 
-// =========================
 // GLOBAL TIME
-// =========================
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
-// =========================
 // BUS STATE
-// =========================
 glm::vec3 busPos = glm::vec3(0.0f, 0.0f, 0.0f);
 float busAngle = 0.0f;
 
-// =========================
 // CAMERA (main free camera)
-// =========================
 glm::vec3 worldUp = glm::vec3(0, 1, 0);
 
 glm::vec3 camPos = glm::vec3(0.0f, 7.0f, 18.0f);
@@ -197,18 +188,15 @@ float orbitRadius = 18.0f;
 
 bool birdEyeMode = false;
 
-// =========================
 // ANIM
-// =========================
 bool fanOn = false;
 float fanAngle = 0.0f;
 
 bool doorOpen = false;
 float doorAngle = 0.0f;
 
-// =========================
+
 // KEY GUARDS
-// =========================
 bool gKeyPressed = false, oKeyPressed = false, bKeyPressed = false, fKeyPressed = false;
 
 // lighting toggles (required)
@@ -223,15 +211,13 @@ bool enableAmbient = true;
 bool enableDiffuse = true;
 bool enableSpecular = true;
 
-// =========================
 // PROTOTYPES
-// =========================
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
 unsigned int createShader(const char* vShader, const char* fShader);
 void updateCameraVectors();
 
-// OUR OWN LOOKAT (Requirement #5)
+//OWN LOOKAT
 glm::mat4 myLookAt(glm::vec3 eye, glm::vec3 center, glm::vec3 up)
 {
     glm::vec3 f = glm::normalize(center - eye);      // forward
@@ -251,9 +237,7 @@ glm::mat4 myLookAt(glm::vec3 eye, glm::vec3 center, glm::vec3 up)
     return M * T;
 }
 
-// =========================
 // CUBE WITH NORMALS (36 vertices)
-// =========================
 float cubeVertices[] = {
     // positions          // normals
     // FRONT
@@ -305,9 +289,7 @@ float cubeVertices[] = {
  0.5f,-0.5f,-0.5f,     0,-1,0
 };
 
-// =========================
 // DRAW HELPERS
-// =========================
 void setModel(unsigned int modelLoc, const glm::mat4& m)
 {
     glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(m));
@@ -365,9 +347,7 @@ void drawWheelFakeCylinder(unsigned int VAO,
     }
 }
 
-// =========================
 // MAIN
-// =========================
 int main()
 {
     std::cout <<
@@ -580,9 +560,7 @@ int main()
             glUniform3f(pointColLoc[i], pointCols[i].x, pointCols[i].y, pointCols[i].z);
         }
 
-        // =========================================
-        // 4 VIEWPORTS (Requirement #6)
-        // =========================================
+        // 4 VIEWPORTS
         int halfW = SCR_WIDTH / 2;
         int halfH = SCR_HEIGHT / 2;
 
@@ -610,7 +588,7 @@ int main()
                 vfront = camFront;
                 vup = camUp;
 
-                // combined (whatever toggles user sets)
+                // combined
             }
             else if (vp == 1)
             {
@@ -642,16 +620,16 @@ int main()
                 vup = glm::normalize(glm::cross(right, vfront));
             }
 
-            // Use YOUR OWN lookAt
+            //OWN lookAt
             view = myLookAt(vpos, vpos + vfront, vup);
 
             glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
             glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
             glUniform3f(viewPosLoc, vpos.x, vpos.y, vpos.z);
 
-            // =========================================
+          
             // DRAW SCENE (BUS)
-            // =========================================
+            
             glm::vec3 bodyColor = glm::vec3(1.0f, 0.45f, 0.05f);
             glm::vec3 roofColor = glm::vec3(0.95f, 0.95f, 0.95f);
             glm::vec3 glassColor = glm::vec3(0.10f, 0.20f, 0.30f);
@@ -796,7 +774,7 @@ int main()
                 }
             }
 
-            // FAN (inside) - a bit emissive for visibility
+            // FAN (inside)
             {
                 glm::mat4 m = glm::translate(busMatrix, glm::vec3(0.0f, 1.55f, 0.0f));
                 m = glm::rotate(m, glm::radians(fanAngle), glm::vec3(0, 1, 0));
@@ -828,9 +806,7 @@ int main()
     return 0;
 }
 
-// =========================
 // CAMERA UPDATE
-// =========================
 void updateCameraVectors()
 {
     glm::vec3 front;
@@ -851,9 +827,7 @@ void updateCameraVectors()
     }
 }
 
-// =========================
 // INPUT
-// =========================
 void processInput(GLFWwindow* window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
@@ -940,10 +914,8 @@ void processInput(GLFWwindow* window)
     }
     else oKeyPressed = false;
 
-    // =========================
-    // LIGHT TOGGLES (Assignment requirement)
-    // =========================
 
+    // LIGHT TOGGLES
     // 1: directional
     if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS) {
         if (!key1Pressed) { enableDir = !enableDir; key1Pressed = true; }
@@ -981,9 +953,7 @@ void processInput(GLFWwindow* window)
     else key7Pressed = false;
 }
 
-// =========================
 // CALLBACK
-// =========================
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     SCR_WIDTH = width;
@@ -991,9 +961,8 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
-// =========================
+
 // SHADER COMPILE
-// =========================
 unsigned int createShader(const char* vShaderCode, const char* fShaderCode)
 {
     unsigned int vertex = glCreateShader(GL_VERTEX_SHADER);
